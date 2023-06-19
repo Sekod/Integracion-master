@@ -18,8 +18,14 @@
                 </p>
             </div>
             <div class="col-3">
-                <p class="nav-item navbar-nav"  style="margin-right: 10%;">
+                <p class="nav-item navbar-nav" style="margin-right: 10%;">
                     <a class="nav-link disabled" href="#">Detalle</a>
+                </p>
+            </div>
+            <div class="col-3">
+                <p class="nav-item navbar-nav">
+                    <a class="nav-link" href="../../logout/">Desloguearse</a></a>
+                    
                 </p>
             </div>
 
@@ -33,36 +39,36 @@
             <h5 class="card-title">Lista de solicitudes</h5>
             <p class="card-text">
 
-    <div class="container col-12">
+            <div class="container col-12">
 
-        {% for solicitud in solicitudes %}
-        <div class="row" style="margin-bottom: 2%; margin-top: 2%; margin-left: 1%;">
+                {% for solicitud in solicitudes %}
+                <div class="row" style="margin-bottom: 2%; margin-top: 2%; margin-left: 1%;">
 
-            <p>
-            <div class="col-0.5">{{ solicitud.codigo }} -</div>
-            <div class="col-0.5"> {{ solicitud.nombre }} -</div>
-            <div class="col-0.5"> {{ solicitud.estado }} </div>
-            </p>
+                    <p>
+                    <div class="col-0.5">{{ solicitud.codigo }} -</div>
+                    <div class="col-0.5"> {{ solicitud.nombre }} -</div>
+                    <div class="col-0.5"> {{ solicitud.estado }} </div>
+                    </p>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{% url 'detalle_solicitud' solicitud.pk %}"><button class="btn btn-primary"
+                                style="max-width: 80%; width: 80%;"> Ver detalles </button></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="{% url 'editar_solicitud' solicitud.pk %}"><button class="btn btn-primary"
+                                style="max-width: 80%; width: 80%;">Editar </button></a>
+                    </div>
+                    <div class="col-4">
+                        <a href="{% url 'eliminar_solicitud' solicitud.pk %}"><button class="btn btn-primary"
+                                style="max-width: 80%; width: 80%;"> Eliminar </button></a>
+                    </div>
+                </div>
+
+                {% endfor %}
+
+            </div>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <a href="{% url 'detalle_solicitud' solicitud.pk %}"><button class="btn btn-primary"
-                        style="max-width: 80%; width: 80%;"> Ver detalles </button></a>
-            </div>
-            <div class="col-4">
-                <a href="{% url 'editar_solicitud' solicitud.pk %}"><button class="btn btn-primary"
-                        style="max-width: 80%; width: 80%;">Editar </button></a>
-            </div>
-            <div class="col-4">
-                <a href="{% url 'eliminar_solicitud' solicitud.pk %}"><button class="btn btn-primary"
-                        style="max-width: 80%; width: 80%;"> Eliminar </button></a>
-            </div>
-        </div>
-
-        {% endfor %}
-
-    </div>
-            </div>
         </p>
     </div>
 </body>

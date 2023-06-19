@@ -36,12 +36,23 @@
     </header>
 </head>
 <body>
-    
-      <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-light bg-light">
         <form class="form-inline" method="GET" action="/datos/">
-          <input class="form-control mr-sm-2" name="codigo" id="codigo" type="text" placeholder="ingresa codigo" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" value="Buscar" type="submit">Buscar</button>
+            <input class="form-control mr-sm-2" name="codigo" id="codigo" type="text" placeholder="Ingresa código" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" value="Buscar" type="submit">Buscar</button>
         </form>
-      </nav>
+    </nav>
+
+    {% if mensaje %}
+    <div class="alert alert-danger" role="alert">
+        {{ mensaje }}
+    </div>
+    {% endif %}
+
+    {% if datos %}
+    <!-- Mostrar los datos de la solicitud -->
+    {% else %}
+    <!-- Mostrar algún mensaje adicional si no hay datos -->
+    {% endif %}
 </body>
 </html>
